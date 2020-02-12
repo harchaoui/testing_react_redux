@@ -66,7 +66,7 @@ export class Leads extends Component {
 
                 <h1> lead detail</h1>
 
-                <table className="table table-striped">
+                {/* <table className="table table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -88,7 +88,7 @@ export class Leads extends Component {
                                 </tr>
                         )}
                     </tbody>
-                </table>
+                </table> */}
             </Fragment>
 
         )

@@ -6,16 +6,29 @@ import { GET_LEADS, INFO_LEAD, DELETE_LEAD, GET_LEADS_LIB } from './types'
 // use the dispatch to dispatch the action to the reducer
 export const getLeads = () => dispatch => {
     // perform the http req
-    axios.get('/api/leads')
-        .then(res => {
-            dispatch({
+    let lots_list_action = [
+        { 'id': 1, 'name': 'Lot 1', },
+        { 'id': 2, 'name': 'Lot 2', },
+        { 'id': 3, 'name': 'Lot 3', },
+        { 'id': 4, 'name': 'Lot 4', },
+
+    ]
+             dispatch({
                 // send to the reducer
                 type: GET_LEADS,
-                payload: res.data
+                payload: lots_list_action
             })
-        }).catch(
-            err => console.log(err)
-        )
+
+    // axios.get('/api/leads')
+    //     .then(res => {
+    //         dispatch({
+    //             // send to the reducer
+    //             type: GET_LEADS,
+    //             payload: res.data
+    //         })
+    //     }).catch(
+    //         err => console.log(err)
+    //     )
 }
 
 // DELETE LEADS 

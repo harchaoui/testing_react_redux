@@ -7,7 +7,7 @@ import { GET_LEADS, DELETE_LEAD, INFO_LEAD, GET_LEADS_LIB } from '../actions/typ
 
 // create the initial state 
 const initialState = {
-    // leads : [],
+    leads : [],
     // // lots: [],
     // leadinfo :[],
 

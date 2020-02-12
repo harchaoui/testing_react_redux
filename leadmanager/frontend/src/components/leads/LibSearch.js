@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react'
 
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { getLeadsLib, getLeadInfo } from '../../actions/leads'
+import { getLeadsLib, getLeadInfo, getLeads } from '../../actions/leads'
+
 
 export class LibSearch extends Component {
 
@@ -22,58 +23,131 @@ export class LibSearch extends Component {
         alert('Your favorite flavor is: ' + this.state.value);
         event.preventDefault();
     }
-    static propTypes = {
-        lots: PropTypes.array.isRequired,
-        // leadinfo : PropTypes.array.isRequired,
-    }
+    //     static propTypes = {
+    //         lots: PropTypes.array.isRequired,
+    //         // leadinfo : PropTypes.array.isRequired,
+    //     }
 
     componentDidMount() {
-        this.props.getLeadsLib();
+        this.props.getLeads();
+    }
+    static propTypes = {
+        leads: PropTypes.array.isRequired,
+
     }
 
     // render the component
     render() {
         return (
             <Fragment>
-                <h1>
-                    <hr />
-                    <br />
-                    Test filling options Search
-                </h1>
-                <div className="input-group">
-                    <select className="custom-select"
-                        id="inputGroupSelect04"
-                        aria-label="Example select with button addon"
-                        // onChange={}
-                    >
-                        <option defaultValue>Choose...</option>
+                <hr />
+                <br />
+                <p>
+                    select lot, category and support to 
+                    show the list of products
+                </p>
+                <div className="container">
 
-                        {/* list of lots */}
-                        {this.props.lots.map(
-                            lot =>
-                                <option key={lot.id} value={lot.id}>
-                                    {lot.name}
-                                </option>
-                        )}
-                    </select>
+                    <div className="row">
+                        <div className="input-group col">
+                            <select className="custom-select"
+                                id="inputGroupSelect04"
+                                aria-label="Example select with button addon"
+                                onChange={this.handleChange}
+                            >
 
-                    <div className="input-group-append">
-                        <button className="btn btn-outline-secondary" type="button">Button</button>
+                                <option defaultValue>Select lot...</option>
+                                {/* list of lots */}
+                                {this.props.leads.map(
+                                    lead =>
+                                        <option key={lead.id} value={lead.id}>
+                                            {lead.name}
+                                        </option>
+                                )}
+                            </select>
+                        </div>
+                        <div className="input-group col">
+                            <select className="custom-select"
+                                id="inputGroupSelect04"
+                                aria-label="Example select with button addon"
+                                onChange={this.handleChange}
+                            >
+
+                                <option defaultValue>Select Category...</option>
+                                {/* list of lots */}
+                                {this.props.leads.map(
+                                    lead =>
+                                        <option key={lead.id} value={lead.id}>
+                                            {lead.name}
+                                        </option>
+                                )}
+                            </select>
+                        </div>
+                        <div className="input-group col">
+                            <select className="custom-select"
+                                id="inputGroupSelect04"
+                                aria-label="Example select with button addon"
+                                onChange={this.handleChange}
+                            >
+
+                                <option defaultValue>Select Support...</option>
+                                {/* list of lots */}
+                                {this.props.leads.map(
+                                    lead =>
+                                        <option key={lead.id} value={lead.id}>
+                                            {lead.name}
+                                        </option>
+                                )}
+                            </select>
+                        </div>
                     </div>
                 </div>
 
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Pick your favorite flavor:
-          <select value={this.state.value} onChange={this.handleChange}>
-                            <option value="grapefruit">Grapefruit</option>
-                            <option value="lime">Lime</option>
-                            <option value="coconut">Coconut</option>
-                            <option value="mango">Mango</option>
-                        </select>
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
+
+
+                <h1> Products information </h1>
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>EMAIL</th>
+                            <th>Message</th>
+                            <th />
+                            <th />
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {this.props.leads.map(lead => (
+                            <tr key={lead.id} >
+                                <td> {lead.id}</td>
+                                <td> {lead.name}</td>
+                                <td> {lead.email}</td>
+                                <td> {lead.message}</td>
+                                <td>
+                                    <button
+                                        type="button"
+                                        className="btn btn-info btn-sm"
+                                    // onClick={this.props.getLeadInfo.bind(this, lead.id)}
+                                    >
+                                        Info
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                        type="button"
+                                        className="btn btn-danger btn-sm"
+                                    // onClick={this.props.deleteLead.bind(this,lead.id)}
+                                    >
+                                        delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))
+                        }
+                    </tbody>
+                </table>
 
             </Fragment>
         )
@@ -81,8 +155,11 @@ export class LibSearch extends Component {
 }
 
 const mapStateToProps = state => ({
-    lots: state.lots.lots
+    // leads: state.leads.leads,
+
+    leads: state.leads.leads,
+    leadinfo: state.leads.leadinfo
 
 });
 
-export default connect(mapStateToProps, { getLeadsLib, getLeadInfo })(LibSearch)
+export default connect(mapStateToProps, { getLeadsLib, getLeadInfo, getLeads })(LibSearch)
