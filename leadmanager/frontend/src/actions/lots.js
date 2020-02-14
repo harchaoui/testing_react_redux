@@ -13,10 +13,10 @@ export const getSelectedLot =(lotID) => dispatch => {
 export const getLots = () => dispatch => {
     // define a list of lots:
     let lots_list_action = [
-        { 'id': 1, 'name': 'Lot 1', },
-        { 'id': 2, 'name': 'Lot 2', },
-        { 'id': 3, 'name': 'Lot 3', },
-        { 'id': 4, 'name': 'Lot 4', },
+        { 'id': 1, 'label': 'Lot 1', },
+        { 'id': 2, 'label': 'Lot 2', },
+        { 'id': 3, 'label': 'Lot 3', },
+        { 'id': 4, 'label': 'Lot 4', },
 
     ]
     

@@ -59,46 +59,7 @@ export class LotSearch extends Component {
                 <Select
                     options={this.props.lots}
 
-                />
-
-                {/* <h1> Testing Props and states passing </h1>
-                <button className="btn btn-danger btn-sm"
-                    onClick={this.props.TestFunc}
-                > TEST </button>
-                <select onChange={(e)=>console.log(e.target.getAttribute())}>
-
-                    {this.props.lots.map(
-                        lot =>
-                            <option key={lot.id} value={lot.name} onChange={(e)=>console.log(e.target)} >
-                                {lot.name}
-                            </option>
-                    )}
-                </select> */}
-
-                {/* <select
-                onChange= {this.props.TestFunc}
-                >
-
-                    <option key={1} value="grapefruit">Grapefruit</option>
-                    <option key={2} value="lime">Lime</option>
-
-                </select> */}
-
-                {/* <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Select Categorie ...
-                    <select
-                            value={console.log(this.props)}
-                        // onChange={this.props.getLots.bind(this,key)}
-                        >
-
-                            <option key={1} value="grapefruit">Grapefruit</option>
-                            <option key={2} value="lime">Lime</option>
-
-                        </select>
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form> */}
+                /> 
             </Fragment>
         )
     }

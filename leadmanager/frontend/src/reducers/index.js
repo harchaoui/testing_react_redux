@@ -2,25 +2,22 @@
 
 import { combineReducers } from 'redux';
 
-import lots_payload from './lots'
-import id_payload from './lots'
-import lot_object_value from './lots'
-import leads from './leads'
+import categories from './categories'
+import supports from './supports'
+import products from './products'
+import lots  from './leads'
 
-
-import items from './test'
 
 
 
 export default combineReducers({
     // Can be Replaced with (leads)
-    // leads: leads,
-    leads :leads ,
-    // testReducer :  items,
-    // lotsReducer : lots_payload,
-    // idReducer : id_payload ,
-    // lot_object_value
-    
-    
-    
+    lots_r : lots ,
+    // lot_id,
+
+    categories_r :categories,
+    // cat_id
+    supports_r : supports,
+    products_r : products,
+
 });

@@ -33,7 +33,7 @@ export default function (state = initialState, action) {
             // console.log(op)
             return {
                 ...state,
-                lots_payload:Object.entries(state.lots_payload)
+                lots_payload: Object.entries(state.lots_payload)
                     .map(([label, value]) => ({ label, value }))
                 // lots_payload: action.payload
                 // lot_object_value : state.lots_payload.forEach(lot => [{label:lot.id,value:lot.name}])
@@ -48,11 +48,6 @@ export default function (state = initialState, action) {
                 state,
                 // return a {label:'x', value:'y'} object to the select
                 // component
-
-
-
-
-
                 //return the the id of the selected lot 
                 // id_payload: state.lots_payload.find(
                 //     lot => lot.id ===action.payload

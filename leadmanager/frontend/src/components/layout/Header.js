@@ -8,7 +8,9 @@ export class Header extends Component {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a className="navbar-brand" href="#">Lib des Prix</a>
+                    <a className="navbar-brand" href="#">
+                        Bibliothèque des Prix
+                    </a>
                 </div>
             </nav>
         )

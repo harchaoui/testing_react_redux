@@ -96,11 +96,6 @@ export class Leads extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    // map State to Propos from reducer to be attached
-    // or handled/ known by the component
-    // state.leads stand for lead reducer 
-    // and the .leads stand for leads in the reducer  
-
     leads: state.leads.leads,
     leadinfo: state.leads.leadinfo
 });

@@ -3,13 +3,11 @@
 // i.e (get leads, add leads, delete leads ...etc)
 // we define leads with something called types
 
-import { GET_LEADS, DELETE_LEAD, INFO_LEAD, GET_LEADS_LIB } from '../actions/types.js'
+import { GET_LEADS } from '../actions/types.js'
 
 // create the initial state 
 const initialState = {
-    leads : [],
-    // // lots: [],
-    // leadinfo :[],
+    lots : [],
 
 }
 export default function (state = initialState, action) {
@@ -26,29 +24,29 @@ export default function (state = initialState, action) {
                 ...state,
 
                 // leads from action/leads.js
-                leads: action.payload
+                lots: action.payload
             };
 
         // DELETE LEAD
-        case DELETE_LEAD:
-            return {
-                ...state,
-                leads: state.leads.filter(
-                    lead => lead.id !== action.payload
-                )
-            }
+        // case DELETE_LEAD:
+        //     return {
+        //         ...state,
+        //         lots: state.lots.filter(
+        //             lead => lead.id !== action.payload
+        //         )
+        //     }
 
-        //Get selected LEAD INFO
-        case INFO_LEAD:
-            console.log(action.payload)
-            return {
-                ...state,
+        // //Get selected LEAD INFO
+        // case INFO_LEAD:
+        //     console.log(action.payload)
+        //     return {
+        //         ...state,
 
-                // return a lead based on it id.
-                leadinfo: state.leads.filter(lead => lead.id === action.payload),
-            }
+        //         // return a lead based on it id.
+        //         leadinfo: state.leads.filter(lead => lead.id === action.payload),
+        //     }
 
-        // default return
+        // // default return
         default:
             return state;
 
